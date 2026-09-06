@@ -1,5 +1,7 @@
 # T1 — TO_Threat Preregistered Design
 
+Preregistered before the first T1 execution.
+
 ## Control
 F1 remains the historical Core champion and control model: PASS + OL + DEF + PRESS + home indicator. F1's existing state construction, hyperparameter search, and walk-forward framework remain frozen except for one known QA correction made before this T1 comparison: remove full-history centering from `OL_RUN_RAW`; training-fold normalization performs the centering instead.
 
