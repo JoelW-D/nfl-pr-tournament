@@ -1,0 +1,48 @@
+name: NFL Historical Model Tournament
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'tournament.py'
+      - 'requirements.txt'
+      - '.github/workflows/tournament.yml'
+
+jobs:
+  run-tournament:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run frozen B0 vs S0 vs F1 vs F2 tournament
+        run: python tournament.py
+
+      - name: Upload tournament results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-pr-tournament-results
+          path: NFL_PR_Tournament_Output/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload source hashes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-pr-tournament-cache-audit
+          path: NFL_PR_Tournament_Cache/
+          if-no-files-found: warn
+          retention-days: 7
