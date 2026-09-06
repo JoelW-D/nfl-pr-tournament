@@ -3,3 +3,4 @@ pandas
 requests
 scikit-learn
 pyarrow
+# tournament dependencies
