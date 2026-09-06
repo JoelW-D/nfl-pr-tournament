@@ -1,0 +1,39 @@
+name: T1 TO Threat Tournament
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 't1_to_threat.py'
+      - 'T1_TO_THREAT_DESIGN.md'
+      - '.github/workflows/t1-to-threat.yml'
+
+jobs:
+  run-t1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run preregistered T1 TO Threat tournament
+        run: python t1_to_threat.py
+
+      - name: Upload T1 results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-pr-t1-to-threat-results
+          path: NFL_PR_T1_Output/
+          if-no-files-found: warn
+          retention-days: 30
