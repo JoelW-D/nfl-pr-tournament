@@ -1,0 +1,33 @@
+name: NFL 2026 Production Freeze v2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/production-2026-freeze-v2.yml'
+
+jobs:
+  freeze-production-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Freeze corrected 2026 F1 production fit and Week 1 baseline
+        run: python production_2026_freeze_v2.py
+      - name: Upload corrected 2026 freeze artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-pr-2026-production-freeze-v2
+          path: NFL_PR_2026_Freeze_Output/
+          if-no-files-found: warn
+          retention-days: 30
