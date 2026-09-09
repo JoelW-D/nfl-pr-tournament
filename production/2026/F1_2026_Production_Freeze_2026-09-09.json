@@ -1,0 +1,28 @@
+{
+  "status": "FROZEN",
+  "authority": "NFL Power Ratings 2026 Opening-Week Handoff v2.0 + frozen runner procedure",
+  "freeze_date": "2026-09-09",
+  "f1_architecture_changed": false,
+  "market_used": false,
+  "fit": {
+    "architecture": "F1 PASS/QB + OL + DEF + PRESS + fitted HFA",
+    "source_seasons": "2017-2025",
+    "fit_seasons": "2018-2025",
+    "half_life": 8,
+    "rho": 0.5,
+    "qb_blend_q": 0.7,
+    "ridge_lambda": 1.9952623149688788,
+    "b_PASS": 17.326446031264528,
+    "b_OL": 5.17358212217206,
+    "b_DEF": 7.496955228289216,
+    "b_PRESS": 1.0258114776833602,
+    "b_HFA": 1.6542716924226364,
+    "prob_intercept_a": -0.0264774850300712,
+    "prob_slope_c": 0.1299706851728377,
+    "ol_run_raw": "0.65*RunEPA + 0.35*OffSuccess",
+    "lambda_rule": "strict minimum CV loss"
+  },
+  "week1_baseline_method": "2025 posterior -> offseason shrinkage -> expected 2026 personnel; QB player-specific; expected starter unit bridge carries prior-team shrunk state; unknown/rookie prior=0",
+  "week1_board_file": "F1_2026_Week1_Baseline_2026-09-09.csv",
+  "note": "Opening-night known game-status changes are applied as a gameday personnel overlay after this 32-team baseline; no coefficient changes."
+}
