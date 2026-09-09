@@ -1,0 +1,44 @@
+{
+  "status": "FROZEN_PREMARKET",
+  "game": "New England Patriots at Seattle Seahawks",
+  "date": "2026-09-09",
+  "venue": "Lumen Field",
+  "market_used": false,
+  "f1_architecture_changed": false,
+  "baseline": {
+    "SEA_PR": 3.948322842,
+    "NE_PR": 3.871521239,
+    "fitted_HFA_points": 1.654271692,
+    "raw_baseline_margin_SEA": 1.731073296,
+    "raw_baseline_home_win_probability": 0.549465491
+  },
+  "confirmed_personnel_overlay": {
+    "Ty_Okada": "OUT",
+    "treatment": "Replace one starting secondary slot with unresolved/league-mean prior; no generic injury-point penalty; PRESS unchanged",
+    "SEA_DEF_after_overlay": 0.243666121,
+    "SEA_PR_after_overlay": 3.782254297,
+    "F1_margin_SEA": 1.565004751,
+    "F1_SEA_win_probability": 0.544116790
+  },
+  "questionable_scenario": {
+    "Nick_Emmanwori": "QUESTIONABLE",
+    "if_unavailable_SEA_DEF": 0.221514655,
+    "if_unavailable_SEA_PR": 3.616185752,
+    "if_unavailable_F1_margin_SEA": 1.398936206,
+    "if_unavailable_F1_SEA_win_probability": 0.538757894
+  },
+  "other_status_notes": {
+    "NE_TreVeyon_Henderson": "OUT; not a starting RB in the frozen starter bridge, so no invented additive penalty",
+    "NE_Ben_Brown": "OUT; backup center, no starting-OL change",
+    "NE_Christian_Barmore": "FULL / no game designation; included",
+    "SEA_Tory_Horton": "QUESTIONABLE; not a starting skill slot in the frozen bridge",
+    "SEA_Anthony_Bradford": "FULL / no game designation; included"
+  },
+  "frozen_call": {
+    "winner": "SEA",
+    "margin_range_points": [1.40, 1.57],
+    "win_probability_range": [0.5388, 0.5441],
+    "personnel_confidence": "Medium",
+    "reason": "Seattle remains the F1 winner under both current secondary-availability scenarios; fitted home field is decisive in an otherwise nearly even neutral-field matchup."
+  }
+}
